@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from drfbackend import models
-from drfbackend.models import Post
+from drfbackend.models import Post, Article
 
 
 class PostSerializer(serializers.Serializer):
@@ -20,3 +20,13 @@ class PostSerializer(serializers.Serializer):
         instance.date = validated_data.get("date", instance.date)
         instance.save()
         return instance
+
+
+class ArticleSerializer(serializers.ModelSerializer):
+    slug = serializers.SlugField(read_only=True)
+    class Meta:
+        model = Article
+        fields = '__all__'
+
+        # we don't need to create and update function because it already includes them.
+
