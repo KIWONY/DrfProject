@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from drfbackend import models
-from drfbackend.models import Post, Article
+from drfbackend.models import Post, Article, Music
 
 
 class PostSerializer(serializers.Serializer):
@@ -30,3 +30,9 @@ class ArticleSerializer(serializers.ModelSerializer):
 
         # we don't need to create and update function because it already includes them.
 
+class MusicSerializer(serializers.ModelSerializer):
+    slug = serializers.SlugField(read_only=True)
+
+    class Meta:
+        model = Music
+        fields = '__all__'

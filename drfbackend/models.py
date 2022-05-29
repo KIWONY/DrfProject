@@ -27,6 +27,7 @@ class Music(models.Model):
     song = models.CharField(max_length=200, null=False)
     artist = models.TextField()
     released_in = models.IntegerField(validators=[MinValueValidator(1950),MaxValueValidator(2022)])
+    slug = models.SlugField(max_length=200, unique=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
