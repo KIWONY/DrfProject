@@ -4,7 +4,6 @@ from drf_viewset.models import Book
 
 
 class BookSerializer(serializers.ModelSerializer):
-    slug = serializers.SlugField(read_only=True)
 
     class Meta:
         model = Book
