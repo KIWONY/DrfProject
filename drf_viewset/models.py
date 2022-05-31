@@ -9,3 +9,14 @@ class Book(models.Model):
 
     def __str__(self):
         return self.book
+
+
+
+
+class Log(models.Model):
+    log = models.TextField(max_length=500,null=False)
+    writer = models.CharField(max_length=100,null=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.log
