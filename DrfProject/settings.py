@@ -41,8 +41,28 @@ INSTALLED_APPS = [
     'drfbackend',
     'drf_viewset',
     'authentication',
+
+    # authentication
     'rest_framework.authtoken',
+
+    # dj-rest auth
+    # https://dj-rest-auth.readthedocs.io/en/latest/
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
 ]
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
