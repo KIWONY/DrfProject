@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'drfbackend',
     'drf_viewset',
     'authentication',
+    'querysetprac',
 
     # authentication
     'rest_framework.authtoken',
@@ -120,10 +121,15 @@ WSGI_APPLICATION = 'DrfProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('MYSQL_DATABASE'),
+        'USER' : 'root',
+        'PASSWORD' : env('MYSQL_ROOT_PASSWORD'),
+        'HOST' : 'db',
+        'PORT' : env('MYSQL_TCP_PORT'),
     }
 }
+pymysql.install_as_MySQLdb()
 
 
 # Password validation
