@@ -1,12 +1,10 @@
-from django.shortcuts import render
-
 # Create your views here.
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from authentication.models import Journal
 from authentication.serializers import JournalSerializer
-from permissions import IsAuthor
+from authentication.permissions import IsAuthor
 
 
 class JournalViewSet(viewsets.ModelViewSet):
